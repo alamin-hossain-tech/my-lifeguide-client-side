@@ -9,11 +9,15 @@ const Service = () => {
         Area of services
       </h1>
       <div className="flex justify-center gap-x-5">
-        <div className="card card-compact w-96 bg-base-100 shadow-xl hover:-translate-y-6 transition-all duration-500 rounded">
+        <div className="card card-compact w-96 bg-base-100 shadow-xl rounded">
           <PhotoProvider>
             <PhotoView src="https://placeimg.com/400/225/arch">
-              <figure className="hover:cursor-pointer">
-                <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
+              <figure className="hover:cursor-pointer ">
+                <img
+                  className="hover:scale-105 overflow-hidden transition-all duration-500 "
+                  src="https://placeimg.com/400/225/arch"
+                  alt="Shoes"
+                />
               </figure>
             </PhotoView>
           </PhotoProvider>

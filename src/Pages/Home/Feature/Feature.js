@@ -1,8 +1,8 @@
 import React from "react";
 import signature from "../../../Assets/Home/signature.png";
-import box from "../../../Assets/Home/experience-box-bg.png";
+
 import experience from "../../../Assets/Home/experience-img.jpg";
-import { GrCertificate } from "react-icons/gr";
+
 import { TbArrowNarrowRight, TbFileCertificate } from "react-icons/tb";
 
 const Feature = () => {

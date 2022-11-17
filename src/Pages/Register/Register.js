@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import { Icon, Input } from "semantic-ui-react";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import TittleHeader from "../Shared/TittleHeader/TittleHeader";
@@ -55,6 +55,7 @@ const Register = () => {
       })
       .catch((e) => {
         console.error(e);
+        toast.error(e.message);
         setError(e.message);
       });
   };
@@ -139,6 +140,18 @@ const Register = () => {
               <div className="social-login mt-5 text-center">
                 <FcGoogle className="inline fa-login" size={"2em"}></FcGoogle>
               </div>
+              <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+              />
             </form>
           </div>
         </div>

@@ -1,16 +1,42 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import logo from "../../../Assets/Logo/logo.png";
+import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        toast.success("Logout Success");
+      })
+      .catch((error) => console.error(error));
+  };
   const menuItems = (
     <>
       <li className="font-semibold">
         <Link to="/">Home</Link>
       </li>
-      <li className="font-semibold">
-        <Link to="/login">Login</Link>
-      </li>
+      {user ? (
+        <>
+          <li className="font-semibold">
+            <Link onClick={handleLogOut}>Add Services</Link>
+          </li>
+          <li className="font-semibold">
+            <Link onClick={handleLogOut}>My Review</Link>
+          </li>
+          <li className="font-semibold">
+            <Link onClick={handleLogOut}>Logout</Link>
+          </li>
+        </>
+      ) : (
+        <li className="font-semibold">
+          <Link to="/login">Login</Link>
+        </li>
+      )}
     </>
   );
   return (
@@ -45,9 +71,9 @@ const Header = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
-      <div className="navbar-end">
+      {/* <div className="navbar-end">
         <a className="btn">Get started</a>
-      </div>
+      </div> */}
     </div>
   );
 };

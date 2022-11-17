@@ -1,0 +1,34 @@
+.ui.icon.input > i.icon:after,
+.ui.icon.input > i.icon:before {
+  left: 12px !important;
+}
+
+.or-text-box {
+  position: relative;
+}
+
+.or-text::after {
+  position: absolute;
+  content: "";
+  width: 30%;
+  height: 1px;
+  background-color: black;
+  top: 50%;
+  left: 60%;
+}
+.or-text::before {
+  position: absolute;
+  content: "";
+  width: 30%;
+  height: 1px;
+  background-color: black;
+  top: 50%;
+  right: 60%;
+}
+
+.fa-login:hover {
+  color: #000;
+  transform: scale(0.9);
+  transition: all ease 0.5s;
+  cursor: pointer;
+}

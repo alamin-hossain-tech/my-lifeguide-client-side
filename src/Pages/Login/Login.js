@@ -7,6 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Button, Icon, Input } from "semantic-ui-react";
 import "./Login.css";
 import { toast, ToastContainer } from "react-toastify";
+import logo from "../../Assets/Logo/logo.png";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -36,7 +37,11 @@ const Login = () => {
       })
       .catch((error) => {
         console.error(error);
-        setError(error.message);
+        toast.error(
+          error.message === "Firebase: Error (auth/wrong-password)."
+            ? "Wrong Password"
+            : "User Not Fount"
+        );
       })
       .finally(() => {
         setLoading(false);
@@ -45,11 +50,12 @@ const Login = () => {
   return (
     <div>
       <TittleHeader title={"Login"}></TittleHeader>
-      <section className="w-1/2 my-12 mx-auto rounded shadow-lg">
+      <section className="w-1/2 my-24 mx-auto rounded shadow-lg">
         <div className="grid grid-cols-2 ">
           <div
+            className="flex justify-center items-center bg-bottom "
             style={{
-              backgroundImage: `url("https://i.ibb.co/b1nFf4x/professional-programmer-working-late-dark-office.jpg")`,
+              backgroundImage: `url("https://i.ibb.co/s1ctSBG/capnsnap-ut-YSg-MOIm5w-unsplash.jpg")`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               overflow: "hidden",
@@ -75,6 +81,7 @@ const Login = () => {
                 type="password"
                 name="password"
                 size="big"
+                required
               >
                 <Icon name="key" />
                 <input />

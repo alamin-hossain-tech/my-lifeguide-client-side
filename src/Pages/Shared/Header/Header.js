@@ -9,24 +9,36 @@ const Header = () => {
   console.log(user);
   const navigate = useNavigate();
   const handleLogOut = () => {
-    logOut()
-      .then(() => {
-        toast.success("Logout Success");
-      })
-      .catch((error) => console.error(error));
+    if (window.confirm("Are you sure want to logout?")) {
+      logOut()
+        .then(() => {
+          setTimeout(() => {
+            toast.warn("Logout Success");
+            navigate("/");
+          }, 2000);
+        })
+        .catch((error) => console.error(error));
+    }
   };
   const menuItems = (
     <>
       <li className="font-semibold">
         <Link to="/">Home</Link>
       </li>
+      <li className="font-semibold">
+        <Link to="/services">Services</Link>
+      </li>
+    </>
+  );
+  const menuItemsTwo = (
+    <>
       {user ? (
         <>
           <li className="font-semibold">
-            <Link onClick={handleLogOut}>Add Services</Link>
+            <Link>Add Services</Link>
           </li>
           <li className="font-semibold">
-            <Link onClick={handleLogOut}>My Review</Link>
+            <Link>My Review</Link>
           </li>
           <li className="font-semibold">
             <Link onClick={handleLogOut}>Logout</Link>
@@ -64,16 +76,19 @@ const Header = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             {menuItems}
+            {menuItemsTwo}
           </ul>
         </div>
-        <img src={logo} alt="" />
+        <Link to="/">
+          <img src={logo} alt="" />
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
-      {/* <div className="navbar-end">
-        <a className="btn">Get started</a>
-      </div> */}
+      <div className="navbar-end">
+        <ul className="menu menu-horizontal p-0">{menuItemsTwo} </ul>
+      </div>
     </div>
   );
 };

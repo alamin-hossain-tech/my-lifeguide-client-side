@@ -55,18 +55,21 @@ const Register = () => {
       })
       .catch((e) => {
         console.error(e);
-        toast.error(e.message);
-        setError(e.message);
+        toast.error(
+          e.message === "Firebase: Error (auth/email-already-in-use)."
+            ? "Email already in Use"
+            : e.message
+        );
       });
   };
   return (
     <div>
       <TittleHeader title={"Sign Up"}></TittleHeader>
-      <section className="w-1/2 my-12 mx-auto rounded shadow-lg">
+      <section className="w-1/2 my-24 mx-auto rounded shadow-lg">
         <div className="grid grid-cols-2 ">
           <div
             style={{
-              backgroundImage: `url("https://i.ibb.co/b1nFf4x/professional-programmer-working-late-dark-office.jpg")`,
+              backgroundImage: `url("https://i.ibb.co/GdGbGVs/hello-i-m-nik-z1d-LP8sju-I-unsplash.jpg")`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
 
@@ -81,6 +84,7 @@ const Register = () => {
                 placeholder="Name"
                 name="name"
                 size="big"
+                required
               >
                 <Icon name="user" />
                 <input />
@@ -92,6 +96,7 @@ const Register = () => {
                 placeholder="Photo Url"
                 name="image"
                 size="big"
+                required
               >
                 <Icon name="image" />
                 <input />
@@ -103,6 +108,7 @@ const Register = () => {
                 placeholder="Email"
                 name="email"
                 size="big"
+                required
               >
                 <Icon name="at" />
                 <input />
@@ -115,6 +121,7 @@ const Register = () => {
                 type="password"
                 name="password"
                 size="big"
+                required
               >
                 <Icon name="key" />
                 <input />

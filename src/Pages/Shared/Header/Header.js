@@ -35,7 +35,7 @@ const Header = () => {
       {user ? (
         <>
           <li className="font-semibold">
-            <Link>Add Services</Link>
+            <Link to="/add-service">Add Services</Link>
           </li>
           <li className="font-semibold">
             <Link>My Review</Link>

@@ -11,7 +11,7 @@ const TittleHeader = ({ title }) => {
         backgroundSize: "cover",
       }}
     >
-      <h2 className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 text-5xl font-bold text-white z-10">
+      <h2 className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 text-2xl lg:text-5xl font-bold text-white z-10">
         {title}
       </h2>
     </div>

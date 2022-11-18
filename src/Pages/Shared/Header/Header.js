@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import logo from "../../../Assets/Logo/logo.png";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
@@ -8,13 +8,15 @@ const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   console.log(user);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const handleLogOut = () => {
     if (window.confirm("Are you sure want to logout?")) {
       logOut()
         .then(() => {
+          toast.warn("Logout Success");
           setTimeout(() => {
-            toast.warn("Logout Success");
-            navigate("/");
+            navigate(from, { replace: true });
           }, 2000);
         })
         .catch((error) => console.error(error));

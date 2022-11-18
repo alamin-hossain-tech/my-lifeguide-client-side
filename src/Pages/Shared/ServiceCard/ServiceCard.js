@@ -19,7 +19,7 @@ const ServiceCard = ({ service }) => {
         </PhotoView>
       </PhotoProvider>
       <div className="card-body">
-        <h2 className="card-title text-2xl">{service.title}</h2>
+        <h2 className="card-title text-xl ">{service.title}</h2>
         <p className="text-lg">{service.description.slice(0, 150) + " ...."}</p>
         <div className="card-actions justify-end">
           <Link to={`/services/${service._id}`}>

@@ -63,7 +63,7 @@ const AddService = () => {
   return (
     <div>
       <TittleHeader title={"Add a Service"}></TittleHeader>
-      <div className="container mx-auto my-24">
+      <div className="container mx-auto my-24 px-5 lg:px-0">
         <Form onSubmit={handleAddService}>
           <Form.Field>
             <label>Enter Service Title</label>

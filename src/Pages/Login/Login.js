@@ -4,19 +4,29 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import TittleHeader from "../Shared/TittleHeader/TittleHeader";
 import { FcGoogle } from "react-icons/fc";
-import { Button, Icon, Input } from "semantic-ui-react";
+import { Icon, Input } from "semantic-ui-react";
 import "./Login.css";
 import { toast, ToastContainer } from "react-toastify";
-import logo from "../../Assets/Logo/logo.png";
 
 const Login = () => {
   const [error, setError] = useState("");
-  const { signIn, setLoading, providerLogin, logOut } = useContext(AuthContext);
+  const { signIn, setLoading, providerLogin } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
   const googleProvider = new GoogleAuthProvider();
+  const handleGoogleLogin = () => {
+    providerLogin(googleProvider)
+      .then((res) => {
+        setError("");
+        toast.success("Successfully logged in!");
+        setTimeout(() => {
+          navigate(from, { replace: true });
+        }, 1000);
+      })
+      .catch((error) => console.log(error));
+  };
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -106,7 +116,11 @@ const Login = () => {
                 <p className="or-text text-center">OR</p>
               </div>
               <div className="social-login mt-5 text-center">
-                <FcGoogle className="inline fa-login" size={"2em"}></FcGoogle>
+                <FcGoogle
+                  onClick={handleGoogleLogin}
+                  className="inline fa-login"
+                  size={"2em"}
+                ></FcGoogle>
               </div>
               <ToastContainer
                 position="top-center"

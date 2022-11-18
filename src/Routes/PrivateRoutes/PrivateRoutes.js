@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
-import { Button, Loader } from "semantic-ui-react";
+import { Loader } from "semantic-ui-react";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const PrivateRoutes = ({ children }) => {

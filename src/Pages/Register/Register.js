@@ -1,18 +1,19 @@
-import React, { useContext, useState } from "react";
+import { GoogleAuthProvider } from "firebase/auth";
+import React, { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { Icon, Input } from "semantic-ui-react";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import TittleHeader from "../Shared/TittleHeader/TittleHeader";
 
 const Register = () => {
-  const [error, setError] = useState("");
-
-  const { createUser, updateUserProfile, verifyEmail, logOut } =
+  const { createUser, updateUserProfile, logOut, providerLogin } =
     useContext(AuthContext);
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleUpdateUserProfile = (name, photoURL) => {
     const profile = {
@@ -30,6 +31,18 @@ const Register = () => {
       .then((res) => {})
       .catch((error) => {});
   };
+  const googleProvider = new GoogleAuthProvider();
+
+  const handleGoogleLogin = () => {
+    providerLogin(googleProvider)
+      .then((res) => {
+        toast.success("Successfully logged in!");
+        setTimeout(() => {
+          navigate(from, { replace: true });
+        }, 1000);
+      })
+      .catch((error) => console.log(error));
+  };
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -43,7 +56,6 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        setError("");
         form.reset();
         handleUpdateUserProfile(name, photoURL);
         toast.success("Please Login your account please.");
@@ -145,7 +157,11 @@ const Register = () => {
                 <p className="or-text text-center">OR</p>
               </div>
               <div className="social-login mt-5 text-center">
-                <FcGoogle className="inline fa-login" size={"2em"}></FcGoogle>
+                <FcGoogle
+                  onClick={handleGoogleLogin}
+                  className="inline fa-login"
+                  size={"2em"}
+                ></FcGoogle>
               </div>
               <ToastContainer
                 position="top-center"

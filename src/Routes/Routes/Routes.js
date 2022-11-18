@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layouts/Main";
+import AddReview from "../../Pages/AddReview/AddReview";
 import AddService from "../../Pages/AddService/AddService";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
@@ -40,6 +41,15 @@ export const routes = createBrowserRouter([
         element: <SingleService></SingleService>,
         loader: ({ params }) =>
           fetch(`http://localhost:4000/services/${params.id}`),
+      },
+      {
+        path: "/addreview/:id",
+        loader: ({ params }) => params.id,
+        element: (
+          <PrivateRoutes>
+            <AddReview></AddReview>
+          </PrivateRoutes>
+        ),
       },
     ],
   },

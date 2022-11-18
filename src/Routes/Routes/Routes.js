@@ -5,6 +5,7 @@ import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
 import Services from "../../Pages/Services/Services";
+import SingleService from "../../Pages/SingleService/SingleService";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 export const routes = createBrowserRouter([
@@ -15,6 +16,7 @@ export const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: () => fetch("http://localhost:4000/services"),
       },
       {
         path: "/login",
@@ -26,15 +28,16 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/services",
-        element: (
-          <PrivateRoutes>
-            <Services></Services>
-          </PrivateRoutes>
-        ),
+        element: <Services></Services>,
+        loader: () => fetch("http://localhost:4000/services"),
       },
       {
         path: "/add-service",
         element: <AddService></AddService>,
+      },
+      {
+        path: "/services/:id",
+        element: <SingleService></SingleService>,
       },
     ],
   },

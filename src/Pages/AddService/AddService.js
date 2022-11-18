@@ -16,16 +16,32 @@ const AddService = () => {
     const title = form.title.value;
     const thumbUrl = form.thumbUrl.value;
     const description = form.description.value;
-    console.log(description, title, thumbUrl);
+    const certificate = form.certificate.value;
+    const language = form.language.value;
+    const duration = form.duration.value;
+    const level = form.level.value;
+    console.log(
+      description,
+      title,
+      thumbUrl,
+      certificate,
+      language,
+      duration,
+      level
+    );
     if (description === "") {
       toast.error("description can not be empty");
     }
     const service = {
       author: user?.displayName,
-      published: new Date(),
+      published: new Date().getTime(),
       title: title,
       thumbUrl: thumbUrl,
       description: description,
+      language: language,
+      duration: duration,
+      level: level,
+      certificate: certificate,
     };
     fetch("http://localhost:4000/add-service", {
       method: "POST",
@@ -56,6 +72,35 @@ const AddService = () => {
           <Form.Field>
             <label>Thubnail Url</label>
             <input placeholder="Thubnail Url" required name="thumbUrl" />
+          </Form.Field>
+          <Form.Field label="Language ?" control="select" name="language">
+            <option value="English">English</option>
+            <option value="Bangla">Bangla</option>
+            <option value="French">French</option>
+            <option value="Chinese">Chinese</option>
+          </Form.Field>
+          <Form.Field label="Skill Level ?" control="select" name="level">
+            <option value="All Level">All Level</option>
+            <option value="Advanced">Advanced</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Beginer">Beginer</option>
+          </Form.Field>
+          <Form.Field>
+            <label>Duration (hours) </label>
+            <input
+              placeholder="Enter Service Duration"
+              required
+              name="duration"
+              type="number"
+            />
+          </Form.Field>
+          <Form.Field
+            label="Certificate Availavle"
+            control="select"
+            name="certificate"
+          >
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
           </Form.Field>
           <Form.TextArea
             label="Description"

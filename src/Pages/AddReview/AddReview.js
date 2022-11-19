@@ -22,6 +22,7 @@ const AddReview = () => {
     } else {
       const review = {
         serviceId: service._id,
+        serviceName: service.title,
         displaName: user?.displayName,
         photoURL: user?.photoURL,
         rating: rating,

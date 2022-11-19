@@ -34,8 +34,6 @@ export const routes = createBrowserRouter([
       {
         path: "/services",
         element: <Services></Services>,
-        loader: () =>
-          fetch("https://my-life-guide-server.vercel.app/servicesall"),
       },
       {
         path: "/add-service",

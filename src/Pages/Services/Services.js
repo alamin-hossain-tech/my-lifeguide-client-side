@@ -1,13 +1,36 @@
-import React from "react";
-import { useLoaderData } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Loader } from "semantic-ui-react";
+
+import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import TabTitle from "../../Utility/General";
 
 import ServiceCard from "../Shared/ServiceCard/ServiceCard";
 import TittleHeader from "../Shared/TittleHeader/TittleHeader";
 
 const Services = () => {
-  const services = useLoaderData();
-  TabTitle("Services");
+  const { loading, setLoading } = useContext(AuthContext);
+
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+    setLoading(true);
+
+    fetch("https://my-life-guide-server.vercel.app/servicesall")
+      .then((res) => res.json())
+      .then((data) => {
+        setServices(data);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="h-screen flex justify-center items-center">
+        <Loader active inline="centered" />
+      </div>
+    );
+  }
+
   return (
     <div>
       <TittleHeader title={"All Services"}></TittleHeader>

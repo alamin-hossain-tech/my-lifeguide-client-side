@@ -5,6 +5,7 @@ import { TbEdit } from "react-icons/tb";
 import { FiDelete } from "react-icons/fi";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import { toast, ToastContainer } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const MyReviews = () => {
   const { user } = useContext(AuthContext);
@@ -61,12 +62,14 @@ const MyReviews = () => {
                         <td>{review.serviceName}</td>
                         <td>{review.review}</td>
                         <td>
-                          <Tooltip title="Edit">
-                            <IconButton>
-                              <TbEdit className="inline text-xl"></TbEdit>
-                            </IconButton>
-                          </Tooltip>
-                          <Tooltip title="Edit">
+                          <Link to={`/review/edit/${review._id}`}>
+                            <Tooltip title="Edit">
+                              <IconButton>
+                                <TbEdit className="inline text-xl"></TbEdit>
+                              </IconButton>
+                            </Tooltip>
+                          </Link>
+                          <Tooltip title="Delete">
                             <IconButton
                               onClick={() => handleDelete(review._id)}
                             >
@@ -98,6 +101,24 @@ const MyReviews = () => {
               pauseOnHover
               theme="colored"
             />
+            <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+            <div className="modal">
+              <div className="modal-box relative">
+                <label
+                  htmlFor="my-modal-3"
+                  className="btn btn-sm btn-circle absolute right-2 top-2"
+                >
+                  ✕
+                </label>
+                <h3 className="text-lg font-bold">
+                  Congratulations random Internet user!
+                </h3>
+                <p className="py-4">
+                  You've been selected for a chance to get one year of
+                  subscription to use Wikipedia for free!
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

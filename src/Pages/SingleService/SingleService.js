@@ -38,7 +38,12 @@ const SingleService = () => {
               </Tooltip>
             </PhotoView>
           </PhotoProvider>
-          <h2 className="text-xl lg:text-4xl">{service.title}</h2>
+          <div className="flex justify-between items-center gap-5 mt-8">
+            <h2 className="text-xl lg:text-4xl">{service.title}</h2>
+            <p className="text -xl lg:text-4xl font-semibold">
+              ${service.price}
+            </p>
+          </div>
           <div className="w-full border-t py-3 border-slate-200"></div>
           <p className="text-xl ">{service.description}</p>
           <div className=" shadow p-5">

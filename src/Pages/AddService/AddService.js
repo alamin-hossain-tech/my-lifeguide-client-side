@@ -21,6 +21,7 @@ const AddService = () => {
     const language = form.language.value;
     const duration = form.duration.value;
     const level = form.level.value;
+    const price = form.price.value;
 
     if (description === "") {
       toast.error("description can not be empty");
@@ -35,6 +36,7 @@ const AddService = () => {
         duration: duration,
         level: level,
         certificate: certificate,
+        price: price,
       };
       fetch("https://my-life-guide-server.vercel.app/add-service", {
         method: "POST",
@@ -65,6 +67,15 @@ const AddService = () => {
           <Form.Field>
             <label>Thubnail Url</label>
             <input placeholder="Thubnail Url" required name="thumbUrl" />
+          </Form.Field>
+          <Form.Field>
+            <label>Price ($) </label>
+            <input
+              placeholder="Enter Service Price"
+              required
+              name="price"
+              type="number"
+            />
           </Form.Field>
           <Form.Field label="Language ?" control="select" name="language">
             <option value="English">English</option>

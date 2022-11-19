@@ -21,9 +21,10 @@ const ServiceCard = ({ service }) => {
       <div className="card-body">
         <h2 className="card-title text-xl ">{service.title}</h2>
         <p className="text-lg">{service.description.slice(0, 150) + " ...."}</p>
-        <div className="card-actions justify-end">
+        <div className="card-actions flex justify-between ">
+          <p className="text-xl font-semibold">${service.price}</p>
           <Link to={`/services/${service._id}`}>
-            <button className="text-info text-lg">Read More</button>
+            <button className=" text-info text-lg">Read More</button>
           </Link>
         </div>
       </div>

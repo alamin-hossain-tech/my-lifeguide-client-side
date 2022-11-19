@@ -1,20 +1,15 @@
-import {
-  IconButton,
-  List,
-  ListItem,
-  ListItemText,
-  Tooltip,
-} from "@mui/material";
+import { IconButton, Tooltip } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 import TittleHeader from "../Shared/TittleHeader/TittleHeader";
 import { TbEdit } from "react-icons/tb";
 import { FiDelete } from "react-icons/fi";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import { toast, ToastContainer } from "react-toastify";
 
 const MyReviews = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
-  console.log(user.email);
+
   let count = 0;
   useEffect(() => {
     fetch(`http://localhost:4000/userreviews/${user?.email}`)
@@ -22,7 +17,24 @@ const MyReviews = () => {
       .then((data) => setReviews(data))
       .catch((err) => console.log(err));
   }, [user]);
-  console.log(reviews);
+
+  const handleDelete = (id) => {
+    if (window.confirm("Are you sure want to delete?")) {
+      fetch(`http://localhost:4000/review/delete/${id}`, {
+        method: "POST",
+        headers: {
+          "content-type": "aplication/json",
+        },
+        body: JSON.stringify(id),
+      })
+        .then((res) => {
+          setReviews(reviews.filter((review) => review._id !== id));
+          toast.success("Deleted");
+        })
+        .catch((err) => console.error(err));
+    }
+  };
+
   return (
     <div>
       <TittleHeader title={"My Reviews"}></TittleHeader>
@@ -41,31 +53,51 @@ const MyReviews = () => {
                 </tr>
               </thead>
               <tbody>
-                {reviews.map((review) => (
-                  <>
-                    <tr>
-                      <th>{(count = count + 1)}</th>
-                      <td>Not yet</td>
-                      <td>{review.review}</td>
-                      <td>
-                        <Tooltip title="Edit">
-                          <IconButton onClick={() => console.log(review._id)}>
-                            <TbEdit className="inline text-xl"></TbEdit>
-                          </IconButton>
-                        </Tooltip>
-                        <Tooltip title="Edit">
-                          <IconButton>
-                            <FiDelete className="inline text-xl"></FiDelete>
-                          </IconButton>
-                        </Tooltip>
-                      </td>
-                    </tr>
-                  </>
-                ))}
+                {reviews.length > 0 ? (
+                  reviews.map((review) => (
+                    <>
+                      <tr>
+                        <th>{(count = count + 1)}</th>
+                        <td>{review.serviceName}</td>
+                        <td>{review.review}</td>
+                        <td>
+                          <Tooltip title="Edit">
+                            <IconButton>
+                              <TbEdit className="inline text-xl"></TbEdit>
+                            </IconButton>
+                          </Tooltip>
+                          <Tooltip title="Edit">
+                            <IconButton
+                              onClick={() => handleDelete(review._id)}
+                            >
+                              <FiDelete className="inline text-xl"></FiDelete>
+                            </IconButton>
+                          </Tooltip>
+                        </td>
+                      </tr>
+                    </>
+                  ))
+                ) : (
+                  <th>
+                    <p className="py-24">You didn't add any review yet</p>
+                  </th>
+                )}
 
                 {/* <!-- row 2 --> */}
               </tbody>
             </table>
+            <ToastContainer
+              position="top-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="colored"
+            />
           </div>
         </div>
       </div>

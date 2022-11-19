@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import TittleHeader from "../Shared/TittleHeader/TittleHeader";
-import { GrCertificate, GrLanguage, GrLock } from "react-icons/gr";
+import { GrCertificate, GrLanguage } from "react-icons/gr";
 import { GoClock, GoGraph } from "react-icons/go";
 import { BiLockAlt } from "react-icons/bi";
 import ReviewItem from "../Shared/ReviewItem/ReviewItem";
@@ -16,7 +16,7 @@ const SingleService = () => {
       .then((res) => res.json())
       .then((data) => setReviews(data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [service]);
 
   return (
     <div>

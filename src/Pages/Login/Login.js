@@ -21,6 +21,19 @@ const Login = () => {
   const handleGoogleLogin = () => {
     providerLogin(googleProvider)
       .then((res) => {
+        const user = res.user;
+        const currentUser = {
+          email: user.email,
+        };
+        fetch("http://localhost:4000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => localStorage.setItem("token", data.token));
         setError("");
         toast.success("Successfully logged in!");
         setTimeout(() => {

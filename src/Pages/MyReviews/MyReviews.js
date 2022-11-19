@@ -10,13 +10,28 @@ import TabTitle from "../../Utility/General";
 
 const MyReviews = () => {
   TabTitle("My Reviews");
+  const { logOut } = useContext(AuthContext);
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
+  const handleLogout = () => {
+    logOut()
+      .then()
+      .catch((error) => console.error(error));
+  };
 
   let count = 0;
   useEffect(() => {
-    fetch(`http://localhost:4000/userreviews/${user?.email}`)
-      .then((res) => res.json())
+    fetch(`http://localhost:4000/userreviews/${user?.email}`, {
+      headers: {
+        authorization: ` Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          handleLogout();
+        }
+        return res.json();
+      })
       .then((data) => setReviews(data))
       .catch((err) => console.log(err));
   }, [user]);

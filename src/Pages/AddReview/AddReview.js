@@ -32,7 +32,7 @@ const AddReview = () => {
         userEmail: user?.email,
       };
       console.log(review);
-      fetch("http://localhost:4000/addreview", {
+      fetch("https://my-life-guide-server.vercel.app/addreview", {
         method: "POST",
         headers: {
           "content-type": "application/json",

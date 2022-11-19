@@ -21,7 +21,7 @@ export const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:4000/services"),
+        loader: () => fetch("https://my-life-guide-server.vercel.app/services"),
       },
       {
         path: "/login",
@@ -34,7 +34,8 @@ export const routes = createBrowserRouter([
       {
         path: "/services",
         element: <Services></Services>,
-        loader: () => fetch("http://localhost:4000/services"),
+        loader: () =>
+          fetch("https://my-life-guide-server.vercel.app/servicesall"),
       },
       {
         path: "/add-service",
@@ -44,12 +45,16 @@ export const routes = createBrowserRouter([
         path: "/services/:id",
         element: <SingleService></SingleService>,
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/services/${params.id}`),
+          fetch(
+            `https://my-life-guide-server.vercel.app/services/${params.id}`
+          ),
       },
       {
         path: "/addreview/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/services/${params.id}`),
+          fetch(
+            `https://my-life-guide-server.vercel.app/services/${params.id}`
+          ),
         element: (
           <PrivateRoutes>
             <AddReview></AddReview>
@@ -67,7 +72,9 @@ export const routes = createBrowserRouter([
       {
         path: "/review/edit/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/getreviews/${params.id}`),
+          fetch(
+            `https://my-life-guide-server.vercel.app/getreviews/${params.id}`
+          ),
         element: (
           <PrivateRoutes>
             <EditReview></EditReview>

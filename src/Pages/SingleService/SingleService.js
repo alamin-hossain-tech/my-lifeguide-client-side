@@ -16,7 +16,7 @@ const SingleService = () => {
   TabTitle(service.title);
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:4000/reviews/${service._id}`)
+    fetch(`https://my-life-guide-server.vercel.app/reviews/${service._id}`)
       .then((res) => res.json())
       .then((data) => setReviews(data))
       .catch((err) => console.log(err));

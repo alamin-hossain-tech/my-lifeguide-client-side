@@ -20,13 +20,16 @@ const EditReview = () => {
         review: form.review.value,
         rating: value,
       };
-      fetch(`http://localhost:4000/editreview/${review._id}`, {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(newReview),
-      })
+      fetch(
+        `https://my-life-guide-server.vercel.app/editreview/${review._id}`,
+        {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(newReview),
+        }
+      )
         .then((res) => {
           toast.success("Updated");
           setTimeout(() => {

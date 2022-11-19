@@ -45,7 +45,7 @@ const AddService = () => {
         level: level,
         certificate: certificate,
       };
-      fetch("http://localhost:4000/add-service", {
+      fetch("https://my-life-guide-server.vercel.app/add-service", {
         method: "POST",
         headers: {
           "content-type": "application/json",

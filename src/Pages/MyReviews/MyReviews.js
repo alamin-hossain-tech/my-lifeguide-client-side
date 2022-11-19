@@ -21,11 +21,14 @@ const MyReviews = () => {
 
   let count = 0;
   useEffect(() => {
-    fetch(`http://localhost:4000/userreviews/${user?.email}`, {
-      headers: {
-        authorization: ` Bearer ${localStorage.getItem("token")}`,
-      },
-    })
+    fetch(
+      `https://my-life-guide-server.vercel.app/userreviews/${user?.email}`,
+      {
+        headers: {
+          authorization: ` Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    )
       .then((res) => {
         if (res.status === 401 || res.status === 403) {
           handleLogout();
@@ -38,7 +41,7 @@ const MyReviews = () => {
 
   const handleDelete = (id) => {
     if (window.confirm("Are you sure want to delete?")) {
-      fetch(`http://localhost:4000/review/delete/${id}`, {
+      fetch(`https://my-life-guide-server.vercel.app/review/delete/${id}`, {
         method: "POST",
         headers: {
           "content-type": "aplication/json",

@@ -12,7 +12,7 @@ const Service = ({ services }) => {
       <h1 className="text-center text-4xl uppercase font-semibold mb-10">
         Area of services
       </h1>
-      <div className="flex justify-center gap-x-5">
+      <div className=" flex flex-col md:flex-row justify-center gap-12 items-center">
         {serviceLess.map((service) => (
           <ServiceCard key={service._id} service={service}></ServiceCard>
         ))}

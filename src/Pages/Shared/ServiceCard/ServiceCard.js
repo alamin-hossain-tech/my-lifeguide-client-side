@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const ServiceCard = ({ service }) => {
   return (
-    <div className="card card-compact w-96 bg-base-100 shadow-xl rounded">
+    <div className="card card-compact w-96 bg-base-100 shadow rounded">
       <PhotoProvider>
         <PhotoView src={service.thumbUrl}>
           <figure className="hover:cursor-pointer ">

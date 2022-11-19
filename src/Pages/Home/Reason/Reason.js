@@ -10,11 +10,13 @@ const Reason = () => {
   return (
     <div className="bg-dark-c py-20">
       <div className="container mx-auto">
-        <h2 className="text-4xl font-normal text-white">
+        <h2 className="text-center lg:text-left text-4xl font-normal text-white">
           REASON BEHIND CHOOSING
         </h2>
-        <h2 className="text-4xl font-bold text-white">MY LIFEGUIDE.</h2>
-        <div className="flex gap-x-5 justify-between mt-12">
+        <h2 className="text-4xl font-bold text-white text-center lg:text-left">
+          MY LIFEGUIDE.
+        </h2>
+        <div className="flex flex-col lg:flex-row gap-5 items-center justify-between mt-12">
           <div className="card rounded w-72 bg-base-100 shadow-xl">
             <figure className="py-12 bg-sky-c">
               <MdEmojiPeople className="mx-auto text-7xl"></MdEmojiPeople>

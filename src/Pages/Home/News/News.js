@@ -13,7 +13,7 @@ const News = () => {
           LATEST NEWS AND UPDATES
         </h2>
         <h2 className="text-4xl font-bold text-center">FROM BLOG.</h2>
-        <div className="flex gap-x-8 justify-center my-12">
+        <div className="flex flex-col lg:flex-row items-center gap-8 justify-center my-12">
           <div className="card card-compact w-96 rounded bg-base-100 shadow-xl">
             <figure>
               <img

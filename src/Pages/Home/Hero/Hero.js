@@ -3,7 +3,7 @@ import React from "react";
 const Hero = () => {
   return (
     <div>
-      <div className="carousel w-full">
+      <div className="carousel w-full h-80 lg:h-auto">
         <div id="slide1" className="carousel-item relative w-full">
           <img
             src="http://st.ourhtmldemo.com/new/Life_Guide/images/slides/3.jpg"
@@ -18,10 +18,14 @@ const Hero = () => {
               ❯
             </a>
           </div>
-          <div className="absolute  transform -translate-y-1/2 left-44  top-1/2">
-            <h2 className="text-6xl ">Make a better life for</h2>
-            <h2 className="text-6xl font-bold">You & Your Family</h2>
-            <p className="text-xl pt-5">
+          <div className="absolute  transform -translate-y-1/2 left-20 lg:left-44  top-1/2">
+            <h2 className="text-2xl lg:text-6xl my-0">
+              Make a better life for
+            </h2>
+            <h2 className="text-2xl font-bold lg:text-6xl my-0">
+              You & Your Family
+            </h2>
+            <p className="text-xl pt-5 w-2/3 lg:w-full">
               Expound Teachings Master Builder of Human Happiness.
             </p>
             <button className="btn btn-info mt-5 text-white">Read More</button>
@@ -41,10 +45,14 @@ const Hero = () => {
               ❯
             </a>
           </div>
-          <div className="absolute  transform -translate-y-1/2 right-1/4  top-1/2">
-            <h2 className="text-6xl ">Make a better life for</h2>
-            <h2 className="text-6xl font-bold">You & Your Family</h2>
-            <p className="text-xl pt-5">
+          <div className="absolute  transform -translate-y-1/2 left-20 lg:left-1/2  top-1/2">
+            <h2 className="text-2xl lg:text-6xl my-0 ">
+              Make a better life for
+            </h2>
+            <h2 className="text-2xl lg:text-6xl my-0 font-bold">
+              You & Your Family
+            </h2>
+            <p className="text-xl pt-5 w-2/3 lg:w-full">
               Expound Teachings Master Builder of Human Happiness.
             </p>
             <button className="btn btn-info mt-5 text-white">Read More</button>
@@ -64,10 +72,14 @@ const Hero = () => {
               ❯
             </a>
           </div>
-          <div className="absolute  transform -translate-y-1/2 left-1/4  top-1/2">
-            <h2 className="text-6xl ">Make a better life for</h2>
-            <h2 className="text-6xl font-bold">You & Your Family</h2>
-            <p className="text-xl pt-5">
+          <div className="absolute  transform -translate-y-1/2 left-20 lg:left-44  top-1/2">
+            <h2 className="text-2xl lg:text-6xl my-0  ">
+              Make a better life for
+            </h2>
+            <h2 className="text-2xl lg:text-6xl  my-0 font-bold">
+              You & Your Family
+            </h2>
+            <p className="text-xl pt-5 w-2/3 lg:w-full">
               Expound Teachings Master Builder of Human Happiness.
             </p>
             <button className="btn btn-info mt-5 text-white">Read More</button>

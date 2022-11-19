@@ -6,6 +6,8 @@ import { GoClock, GoGraph } from "react-icons/go";
 import { BiLockAlt } from "react-icons/bi";
 import ReviewItem from "../Shared/ReviewItem/ReviewItem";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import { Tooltip } from "@mui/material";
 
 const SingleService = () => {
   const { user } = useContext(AuthContext);
@@ -23,7 +25,17 @@ const SingleService = () => {
       <TittleHeader title={service.title}></TittleHeader>
       <div className="my-24 grid grid-cols-1 md:grid-cols-4 gap-5 container mx-auto">
         <div className=" col-span-3 px-5 md:px-0">
-          <img className="w-full" src={service.thumbUrl} alt="" />
+          <PhotoProvider>
+            <PhotoView src={service.thumbUrl}>
+              <Tooltip title="Click to view image">
+                <img
+                  className="w-full hover:cursor-pointer"
+                  src={service.thumbUrl}
+                  alt=""
+                />
+              </Tooltip>
+            </PhotoView>
+          </PhotoProvider>
           <h2 className="text-xl lg:text-4xl">{service.title}</h2>
           <div className="w-full border-t py-3 border-slate-200"></div>
           <p className="text-xl ">{service.description}</p>

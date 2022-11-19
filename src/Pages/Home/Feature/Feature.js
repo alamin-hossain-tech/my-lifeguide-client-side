@@ -8,8 +8,8 @@ import { TbArrowNarrowRight, TbFileCertificate } from "react-icons/tb";
 const Feature = () => {
   return (
     <div className="bg-sky-c">
-      <div className="container mx-auto  flex">
-        <div className="w-1/2 flex items-center">
+      <div className="container mx-auto  flex flex-col md:flex-row py-12 lg:py-0">
+        <div className="w-full lg:w-1/2  flex items-center pb-8 lg:pb-0">
           <div className=" w-2/3 mx-auto">
             <h2 className="text-4xl font-medium">SINCE 1994 IAM SERVING AS</h2>
             <h2 className="text-4xl font-bold">LIFE COACHER.</h2>

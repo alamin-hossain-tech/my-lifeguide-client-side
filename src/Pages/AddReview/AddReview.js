@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { Button, Form } from "semantic-ui-react";
@@ -8,7 +8,10 @@ import TittleHeader from "../Shared/TittleHeader/TittleHeader";
 const AddReview = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-  const serviceId = useLoaderData();
+  const service = useLoaderData();
+  console.log(service);
+
+  console.log(service);
   const handleReview = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -18,7 +21,7 @@ const AddReview = () => {
       toast.error("At least write few words");
     } else {
       const review = {
-        serviceId: serviceId,
+        serviceId: service._id,
         displaName: user?.displayName,
         photoURL: user?.photoURL,
         rating: rating,
@@ -35,7 +38,7 @@ const AddReview = () => {
       });
       toast.success("Added Succesfully");
       setTimeout(() => {
-        navigate(`/services/${serviceId}`);
+        navigate(`/services/${service._id}`);
       }, 2000);
     }
   };
@@ -43,6 +46,7 @@ const AddReview = () => {
     <div>
       <TittleHeader title={"Add a Review"}></TittleHeader>
       <div className="w-96 mx-auto my-24">
+        <p className="font-bold ">{service.title}:</p>
         <Form onSubmit={handleReview}>
           <Form.TextArea
             label="Add Review"

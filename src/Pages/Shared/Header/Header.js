@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import logo from "../../../Assets/Logo/logo-main.png";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
@@ -53,6 +53,18 @@ const Header = () => {
   );
   return (
     <div className="container mx-auto navbar bg-base-100">
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">

@@ -7,7 +7,7 @@ const Blog = () => {
   return (
     <div>
       <TittleHeader title={"Blog"}></TittleHeader>
-      <div className="container mx-auto my-24">
+      <div className="container mx-auto my-24 px-5 lg:px-0">
         <div
           tabIndex={0}
           className="collapse collapse-arrow border border-base-300 bg-base-100"

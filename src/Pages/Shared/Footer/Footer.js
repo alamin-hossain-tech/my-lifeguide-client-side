@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import logo from "../../../Assets/Logo/logo-main.png";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
@@ -56,6 +56,18 @@ const Footer = () => {
       <div className="text-center py-6 bg-dark-c text-white">
         Copyright © 2022 My Lifeguide. All Rights Reserved.
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   );
 };

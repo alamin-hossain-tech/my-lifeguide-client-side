@@ -33,34 +33,35 @@ const AddService = () => {
     );
     if (description === "") {
       toast.error("description can not be empty");
-    }
-    const service = {
-      author: user?.displayName,
-      published: new Date().getTime(),
-      title: title,
-      thumbUrl: thumbUrl,
-      description: description,
-      language: language,
-      duration: duration,
-      level: level,
-      certificate: certificate,
-    };
-    fetch("http://localhost:4000/add-service", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(service),
-    })
-      .then((res) => {
-        toast.success("Service Added");
-        console.log(res);
-        form.reset();
-        setTimeout(() => {
-          navigate("/services");
-        }, 1000);
+    } else {
+      const service = {
+        author: user?.displayName,
+        published: new Date().getTime(),
+        title: title,
+        thumbUrl: thumbUrl,
+        description: description,
+        language: language,
+        duration: duration,
+        level: level,
+        certificate: certificate,
+      };
+      fetch("http://localhost:4000/add-service", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(service),
       })
-      .catch((err) => console.log(err));
+        .then((res) => {
+          toast.success("Service Added");
+          console.log(res);
+          form.reset();
+          setTimeout(() => {
+            navigate("/services");
+          }, 1000);
+        })
+        .catch((err) => console.log(err));
+    }
   };
   return (
     <div>

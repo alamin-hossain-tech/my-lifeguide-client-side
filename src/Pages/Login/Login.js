@@ -52,6 +52,18 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const user = result.user;
+        const currentUser = {
+          email: user.email,
+        };
+        fetch("http://localhost:4000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => localStorage.setItem("token", data.token));
         console.log(user);
         form.reset();
         setError("");
@@ -75,8 +87,8 @@ const Login = () => {
   return (
     <div>
       <TittleHeader title={"Login"}></TittleHeader>
-      <section className="w-1/2 my-24 mx-auto rounded shadow-lg">
-        <div className="grid grid-cols-2 ">
+      <section className="w-full lg:w-1/2 my-24 px-5 lg:px-0 container mx-auto rounded shadow">
+        <div className="grid grid-cols-1 lg:grid-cols-2 ">
           <div
             className="flex justify-center items-center bg-bottom "
             style={{

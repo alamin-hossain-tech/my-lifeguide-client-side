@@ -79,8 +79,8 @@ const Register = () => {
   return (
     <div>
       <TittleHeader title={"Sign Up"}></TittleHeader>
-      <section className="w-1/2 my-24 mx-auto rounded shadow-lg">
-        <div className="grid grid-cols-2 ">
+      <section className="w-full lg:w-1/2 my-24 mx-auto rounded shadow">
+        <div className="grid grid-cols-1 lg:grid-cols-2 ">
           <div
             style={{
               backgroundImage: `url("https://i.ibb.co/GdGbGVs/hello-i-m-nik-z1d-LP8sju-I-unsplash.jpg")`,

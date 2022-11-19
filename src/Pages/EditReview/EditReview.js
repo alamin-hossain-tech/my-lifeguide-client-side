@@ -13,24 +13,28 @@ const EditReview = () => {
   const handleEdit = (event) => {
     event.preventDefault();
     const form = event.target;
-    const newReview = {
-      review: form.review.value,
-      rating: value,
-    };
-    fetch(`http://localhost:4000/editreview/${review._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newReview),
-    })
-      .then((res) => {
-        toast.success("Updated");
-        setTimeout(() => {
-          navigate("/my-reviews");
-        }, 2000);
+    if (form.review.value === "") {
+      toast.error("Add at least few words.");
+    } else {
+      const newReview = {
+        review: form.review.value,
+        rating: value,
+      };
+      fetch(`http://localhost:4000/editreview/${review._id}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newReview),
       })
-      .catch((err) => console.error(err));
+        .then((res) => {
+          toast.success("Updated");
+          setTimeout(() => {
+            navigate("/my-reviews");
+          }, 2000);
+        })
+        .catch((err) => console.error(err));
+    }
   };
   return (
     <div>

@@ -11,9 +11,7 @@ const AddReview = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const service = useLoaderData();
-  console.log(service);
 
-  console.log(service);
   const handleReview = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -31,7 +29,7 @@ const AddReview = () => {
         review: feedBack,
         userEmail: user?.email,
       };
-      console.log(review);
+
       fetch("https://my-life-guide-server.vercel.app/addreview", {
         method: "POST",
         headers: {

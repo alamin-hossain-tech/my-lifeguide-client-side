@@ -9,7 +9,6 @@ import TittleHeader from "../Shared/TittleHeader/TittleHeader";
 const AddService = () => {
   TabTitle("Add Services");
   const { user } = useContext(AuthContext);
-  console.log(user);
   const navigate = useNavigate();
 
   const handleAddService = (event) => {
@@ -22,15 +21,7 @@ const AddService = () => {
     const language = form.language.value;
     const duration = form.duration.value;
     const level = form.level.value;
-    console.log(
-      description,
-      title,
-      thumbUrl,
-      certificate,
-      language,
-      duration,
-      level
-    );
+
     if (description === "") {
       toast.error("description can not be empty");
     } else {
@@ -54,7 +45,6 @@ const AddService = () => {
       })
         .then((res) => {
           toast.success("Service Added");
-          console.log(res);
           form.reset();
           setTimeout(() => {
             navigate("/services");

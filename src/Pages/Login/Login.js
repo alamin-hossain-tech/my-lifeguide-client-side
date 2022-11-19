@@ -48,7 +48,7 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+
     signIn(email, password)
       .then((result) => {
         const user = result.user;
@@ -64,7 +64,6 @@ const Login = () => {
         })
           .then((res) => res.json())
           .then((data) => localStorage.setItem("token", data.token));
-        console.log(user);
         form.reset();
         setError("");
         toast.success("Successfully logged in!");

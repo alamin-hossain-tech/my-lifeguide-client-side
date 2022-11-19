@@ -7,8 +7,10 @@ import { FcGoogle } from "react-icons/fc";
 import { Icon, Input } from "semantic-ui-react";
 import "./Login.css";
 import { toast, ToastContainer } from "react-toastify";
+import TabTitle from "../../Utility/General";
 
 const Login = () => {
+  TabTitle("Login");
   const [error, setError] = useState("");
   const { signIn, setLoading, providerLogin } = useContext(AuthContext);
   const navigate = useNavigate();

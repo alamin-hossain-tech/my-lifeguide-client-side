@@ -1,5 +1,6 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import TabTitle from "../../Utility/General";
 import Feature from "./Feature/Feature";
 import Hero from "./Hero/Hero";
 import News from "./News/News";
@@ -8,6 +9,7 @@ import Service from "./Service/Service";
 
 const Home = () => {
   const services = useLoaderData();
+  TabTitle("Home");
   return (
     <div>
       <Hero></Hero>

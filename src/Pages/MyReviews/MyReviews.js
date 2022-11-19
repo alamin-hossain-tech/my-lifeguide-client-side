@@ -6,8 +6,10 @@ import { FiDelete } from "react-icons/fi";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import { toast, ToastContainer } from "react-toastify";
 import { Link } from "react-router-dom";
+import TabTitle from "../../Utility/General";
 
 const MyReviews = () => {
+  TabTitle("My Reviews");
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
 

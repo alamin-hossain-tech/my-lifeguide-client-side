@@ -1,11 +1,13 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import TabTitle from "../../Utility/General";
+
 import ServiceCard from "../Shared/ServiceCard/ServiceCard";
 import TittleHeader from "../Shared/TittleHeader/TittleHeader";
 
 const Services = () => {
   const services = useLoaderData();
-  console.log(services);
+  TabTitle("Services");
   return (
     <div>
       <TittleHeader title={"All Services"}></TittleHeader>

@@ -5,9 +5,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { Icon, Input } from "semantic-ui-react";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import TabTitle from "../../Utility/General";
 import TittleHeader from "../Shared/TittleHeader/TittleHeader";
 
 const Register = () => {
+  TabTitle("Register");
   const { createUser, updateUserProfile, logOut, providerLogin } =
     useContext(AuthContext);
 

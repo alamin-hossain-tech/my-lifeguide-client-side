@@ -3,9 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { Button, Form } from "semantic-ui-react";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import TabTitle from "../../Utility/General";
 import TittleHeader from "../Shared/TittleHeader/TittleHeader";
 
 const AddService = () => {
+  TabTitle("Add Services");
   const { user } = useContext(AuthContext);
   console.log(user);
   const navigate = useNavigate();
@@ -54,9 +56,9 @@ const AddService = () => {
         toast.success("Service Added");
         console.log(res);
         form.reset();
-        // setTimeout(() => {
-        //   navigate("/services");
-        // }, 3000);
+        setTimeout(() => {
+          navigate("/services");
+        }, 1000);
       })
       .catch((err) => console.log(err));
   };

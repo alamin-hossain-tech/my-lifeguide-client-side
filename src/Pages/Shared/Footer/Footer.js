@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import logo from "../../../Assets/Logo/logo.png";
+import logo from "../../../Assets/Logo/logo-main.png";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
 const Footer = () => {

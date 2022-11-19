@@ -1,7 +1,9 @@
 import React from "react";
+import TabTitle from "../../Utility/General";
 import TittleHeader from "../Shared/TittleHeader/TittleHeader";
 
 const Blog = () => {
+  TabTitle("Blog");
   return (
     <div>
       <TittleHeader title={"Blog"}></TittleHeader>

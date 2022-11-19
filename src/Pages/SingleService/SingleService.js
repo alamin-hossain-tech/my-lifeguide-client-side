@@ -8,10 +8,12 @@ import ReviewItem from "../Shared/ReviewItem/ReviewItem";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { Tooltip } from "@mui/material";
+import TabTitle from "../../Utility/General";
 
 const SingleService = () => {
   const { user } = useContext(AuthContext);
   const service = useLoaderData();
+  TabTitle(service.title);
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
     fetch(`http://localhost:4000/reviews/${service._id}`)

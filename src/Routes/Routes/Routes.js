@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layouts/Main";
 import AddReview from "../../Pages/AddReview/AddReview";
 import AddService from "../../Pages/AddService/AddService";
+import Blog from "../../Pages/Blog/Blog";
 import EditReview from "../../Pages/EditReview/EditReview";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
@@ -71,6 +72,10 @@ export const routes = createBrowserRouter([
             <EditReview></EditReview>
           </PrivateRoutes>
         ),
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
       },
     ],
   },

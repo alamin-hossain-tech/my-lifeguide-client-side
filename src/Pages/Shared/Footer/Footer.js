@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import logo from "../../../Assets/Logo/logo.png";
+import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
 const Footer = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    if (window.confirm("Are you sure want to logout?")) {
+      logOut()
+        .then(() => {
+          toast.warn("Logout Success");
+        })
+        .catch((error) => console.error(error));
+    }
+  };
   return (
     <div className="bg-base-200">
       <footer className="footer p-10 container mx-auto text-base-content">
@@ -14,16 +27,30 @@ const Footer = () => {
         </div>
         <div>
           <span className="footer-title">Company</span>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
+          <Link to="/" className="link link-hover">
+            Home
+          </Link>
+          <Link to="/services" className="link link-hover">
+            Services
+          </Link>
+          <Link to="/blog" className="link link-hover">
+            Blog
+          </Link>
+          {user ? (
+            <Link onClick={handleLogOut} className="link link-hover">
+              Logout
+            </Link>
+          ) : (
+            <Link to="/login" className="link link-hover">
+              Login
+            </Link>
+          )}
         </div>
         <div>
           <span className="footer-title">Legal</span>
-          <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
-          <a className="link link-hover">Cookie policy</a>
+          <Link className="link link-hover">Terms of use</Link>
+          <Link className="link link-hover">Privacy policy</Link>
+          <Link className="link link-hover">Cookie policy</Link>
         </div>
       </footer>
       <div className="text-center py-6 bg-dark-c text-white">

@@ -25,7 +25,7 @@ const SingleService = () => {
   return (
     <div>
       <TittleHeader title={service.title}></TittleHeader>
-      <div className="my-24 grid grid-cols-1 md:grid-cols-4 gap-5 container mx-auto">
+      <div className="my-24 grid grid-cols-1 md:grid-cols-4 gap-0 lg:gap-5 container mx-auto">
         <div className=" col-span-3 px-5 md:px-0">
           <PhotoProvider>
             <PhotoView src={service.thumbUrl}>

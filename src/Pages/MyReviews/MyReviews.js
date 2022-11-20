@@ -10,9 +10,9 @@ import TabTitle from "../../Utility/General";
 
 const MyReviews = () => {
   TabTitle("My Reviews");
-  const { logOut } = useContext(AuthContext);
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
+
   const handleLogout = () => {
     logOut()
       .then()
@@ -35,9 +35,11 @@ const MyReviews = () => {
         }
         return res.json();
       })
-      .then((data) => setReviews(data))
+      .then((data) => {
+        setReviews(data);
+      })
       .catch((err) => console.log(err));
-  }, [user]);
+  }, []);
 
   const handleDelete = (id) => {
     if (window.confirm("Are you sure want to delete?")) {

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Loader } from "semantic-ui-react";
 
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import TabTitle from "../../Utility/General";
 
 import ServiceCard from "../Shared/ServiceCard/ServiceCard";
 import TittleHeader from "../Shared/TittleHeader/TittleHeader";
@@ -22,6 +23,7 @@ const Services = () => {
       });
   }, []);
 
+  TabTitle("Services");
   if (loading) {
     return (
       <div className="h-screen flex justify-center items-center">

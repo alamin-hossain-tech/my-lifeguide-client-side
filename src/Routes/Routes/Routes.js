@@ -21,7 +21,6 @@ export const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("https://my-life-guide-server.vercel.app/services"),
       },
       {
         path: "/login",

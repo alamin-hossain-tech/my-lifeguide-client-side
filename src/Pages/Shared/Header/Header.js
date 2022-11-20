@@ -1,3 +1,4 @@
+import { Avatar, Tooltip } from "@mui/material";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
@@ -6,6 +7,7 @@ import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+  console.log(user);
 
   const handleLogOut = () => {
     if (window.confirm("Are you sure want to logout?")) {
@@ -42,6 +44,9 @@ const Header = () => {
           <li className="font-semibold">
             <Link onClick={handleLogOut}>Logout</Link>
           </li>
+          <Tooltip className="ml-2" title={user?.displayName}>
+            <Avatar alt={user?.displayName} src={user?.photoURL} />
+          </Tooltip>
         </>
       ) : (
         <li className="font-semibold">

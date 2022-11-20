@@ -74,7 +74,7 @@ const MyReviews = () => {
                 </tr>
               </thead>
               <tbody>
-                {reviews.length > 0 ? (
+                {reviews.length > 0 &&
                   reviews.map((review) => (
                     <>
                       <tr>
@@ -99,16 +99,14 @@ const MyReviews = () => {
                         </td>
                       </tr>
                     </>
-                  ))
-                ) : (
-                  <th>
-                    <p className="py-24">You didn't add any review yet</p>
-                  </th>
-                )}
+                  ))}
 
                 {/* <!-- row 2 --> */}
               </tbody>
             </table>
+            {reviews.length === 0 && (
+              <h2 className="text-center py-8"> No reviews were added</h2>
+            )}
             <ToastContainer
               position="top-center"
               autoClose={5000}

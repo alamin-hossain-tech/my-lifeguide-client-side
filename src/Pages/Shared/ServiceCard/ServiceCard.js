@@ -20,11 +20,13 @@ const ServiceCard = ({ service }) => {
       </PhotoProvider>
       <div className="card-body">
         <h2 className="card-title text-xl ">{service.title}</h2>
-        <p className="text-lg">{service.description.slice(0, 150) + " ...."}</p>
+        <p className="text-lg">{service.description.slice(0, 100) + " ...."}</p>
         <div className="card-actions flex justify-between ">
           <p className="text-xl font-semibold">${service.price}</p>
           <Link to={`/services/${service._id}`}>
-            <button className=" text-info text-lg">Read More</button>
+            <button className=" text-info text-lg hover:cursor-pointer">
+              view details
+            </button>
           </Link>
         </div>
       </div>

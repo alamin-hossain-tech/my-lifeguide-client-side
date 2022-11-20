@@ -28,6 +28,7 @@ const AddReview = () => {
         rating: rating,
         review: feedBack,
         userEmail: user?.email,
+        publishedTime: new Date().getTime(),
       };
 
       fetch("https://my-life-guide-server.vercel.app/addreview", {

@@ -37,7 +37,7 @@ const Blog = () => {
           className="collapse collapse-arrow border border-base-300 bg-base-100"
         >
           <div className="collapse-title text-xl font-semibold">
-            2. What is JWT?
+            2. What is JWT, and how does it work?
           </div>
           <div className="collapse-content">
             <p>
@@ -61,7 +61,7 @@ const Blog = () => {
           className="collapse collapse-arrow border border-base-300 bg-base-100"
         >
           <div className="collapse-title text-xl font-semibold">
-            3. Differences Between Node.js and JavaScript?
+            3. What is the difference between javascript and NodeJS?
           </div>
           <div className="collapse-content">
             <p>
@@ -103,7 +103,7 @@ const Blog = () => {
           className="collapse collapse-arrow border border-base-300 bg-base-100"
         >
           <div className="collapse-title text-xl font-semibold">
-            4. How does Node.JS handle multiple requests at the same time?
+            4. How does NodeJS handle multiple requests at the same time?
           </div>
           <div className="collapse-content">
             <p>

@@ -78,7 +78,7 @@ const MyReviews = () => {
               <tbody>
                 {reviews.length > 0 &&
                   reviews.map((review) => (
-                    <>
+                    <React.Fragment key={review._id}>
                       <tr>
                         <th>{(count = count + 1)}</th>
                         <td>{review.serviceName}</td>
@@ -100,7 +100,7 @@ const MyReviews = () => {
                           </Tooltip>
                         </td>
                       </tr>
-                    </>
+                    </React.Fragment>
                   ))}
 
                 {/* <!-- row 2 --> */}
@@ -121,24 +121,6 @@ const MyReviews = () => {
               pauseOnHover
               theme="colored"
             />
-            <input type="checkbox" id="my-modal-3" className="modal-toggle" />
-            <div className="modal">
-              <div className="modal-box relative">
-                <label
-                  htmlFor="my-modal-3"
-                  className="btn btn-sm btn-circle absolute right-2 top-2"
-                >
-                  ✕
-                </label>
-                <h3 className="text-lg font-bold">
-                  Congratulations random Internet user!
-                </h3>
-                <p className="py-4">
-                  You've been selected for a chance to get one year of
-                  subscription to use Wikipedia for free!
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>

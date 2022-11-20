@@ -22,7 +22,6 @@ const Home = () => {
     fetch("https://my-life-guide-server.vercel.app/services")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setServices(data);
         setLoading(false);
       });

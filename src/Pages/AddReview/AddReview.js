@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { Button, Form } from "semantic-ui-react";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
@@ -91,9 +91,17 @@ const AddReview = () => {
           <br />
           <br />
 
-          <Button className="" type="submit">
-            Submit
-          </Button>
+          <div className="flex gap-3">
+            <Button className="" type="submit">
+              Submit
+            </Button>
+            <Link
+              to={`/services/${service._id}`}
+              className="btn btn-error text-white hover:text-white hover:bg-opacity-75"
+            >
+              Cancel
+            </Link>
+          </div>
         </Form>
         <ToastContainer
           position="top-center"

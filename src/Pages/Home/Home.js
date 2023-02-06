@@ -8,9 +8,12 @@ import Hero from "./Hero/Hero";
 import News from "./News/News";
 import Reason from "./Reason/Reason";
 import Service from "./Service/Service";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Home = () => {
   TabTitle("Home");
+  AOS.init();
   const { loading, setLoading } = useContext(AuthContext);
   const [services, setServices] = useState([]);
 

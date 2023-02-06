@@ -8,9 +8,9 @@ import { TbArrowNarrowRight, TbFileCertificate } from "react-icons/tb";
 const Feature = () => {
   return (
     <div className="bg-sky-c">
-      <div className="container mx-auto  flex flex-col md:flex-row py-12 lg:py-0">
+      <div className="container mx-auto  flex flex-col md:flex-row py-12 lg:py-6">
         <div className="w-full lg:w-1/2  flex items-center pb-8 lg:pb-0">
-          <div className=" w-2/3 mx-auto">
+          <div data-aos="fade-up" className=" w-2/3 mx-auto">
             <h2 className="text-4xl font-medium">SINCE 1994 IAM SERVING AS</h2>
             <h2 className="text-4xl font-bold">LIFE COACHER.</h2>
             <p className="text-ancent text-xl font-bold my-10">
@@ -34,7 +34,7 @@ const Feature = () => {
         </div>
         <div>
           <div className="relative">
-            <div>
+            <div data-aos="fade-up">
               <img src={experience} className="opacity-25 " alt="" />
               <div className="absolute -translate-y-1/2 -translate-x-1/2 top-1/2 left-1/2 border-4 border-sky-c bg-white  rounded-full w-72 h-72 flex justify-center items-center">
                 <div className="text-center">
